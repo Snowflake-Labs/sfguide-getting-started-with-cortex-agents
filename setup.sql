@@ -3,6 +3,9 @@ CREATE OR REPLACE DATABASE sales_intelligence;
 CREATE OR REPLACE SCHEMA sales_intelligence.data;
 CREATE OR REPLACE WAREHOUSE sales_intelligence_wh;
 
+USE DATABASE sales_intelligence;
+USE SCHEMA data;
+
 -- Create tables for sales data
 CREATE TABLE sales_conversations (
     conversation_id VARCHAR,
