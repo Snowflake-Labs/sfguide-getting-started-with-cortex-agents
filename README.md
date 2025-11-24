@@ -42,7 +42,7 @@ Or with `snowsql` run: `PUT file://sales_metrics_model.yaml @sales_intelligence.
 In Snowsight:
 - Click on your profile (bottom left corner) » Settings » Authentication
 - Under `Programmatic access tokens`, click `Generate new token`
-- Select `Single Role` and select `sales_intelligence_rl`
+- Select `Single Role` and select `sales_intelligence_role`
 - Copy and save the token for later (you will not be able to see it again)
 
 #### 4. Create the Agent
