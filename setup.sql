@@ -10,12 +10,17 @@ CREATE OR REPLACE DATABASE sales_intelligence;
 CREATE OR REPLACE SCHEMA sales_intelligence.data;
 GRANT USAGE ON DATABASE sales_intelligence TO ROLE sales_intelligence_role;
 GRANT USAGE ON SCHEMA sales_intelligence.data TO ROLE sales_intelligence_role;
+GRANT CREATE AGENT ON SCHEMA sales_intelligence.data TO ROLE sales_intelligence_role;
 
 CREATE DATABASE IF NOT EXISTS snowflake_intelligence;
 CREATE SCHEMA IF NOT EXISTS snowflake_intelligence.agents;
 GRANT USAGE ON DATABASE snowflake_intelligence TO ROLE sales_intelligence_role;
 GRANT USAGE ON SCHEMA snowflake_intelligence.agents TO ROLE sales_intelligence_role;
-GRANT CREATE AGENT ON SCHEMA snowflake_intelligence.agents TO ROLE sales_intelligence_role;
+
+-- Snowflake Intelligence object (account-level container for agent discoverability)
+GRANT CREATE SNOWFLAKE INTELLIGENCE ON ACCOUNT TO ROLE sales_intelligence_role;
+GRANT MODIFY ON SNOWFLAKE INTELLIGENCE SNOWFLAKE_INTELLIGENCE_OBJECT_DEFAULT TO ROLE sales_intelligence_role;
+GRANT USAGE ON SNOWFLAKE INTELLIGENCE SNOWFLAKE_INTELLIGENCE_OBJECT_DEFAULT TO ROLE sales_intelligence_role;
 
 CREATE OR REPLACE WAREHOUSE sales_intelligence_wh
 WITH 
