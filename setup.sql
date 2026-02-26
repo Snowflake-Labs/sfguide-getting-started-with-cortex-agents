@@ -137,5 +137,6 @@ GRANT USAGE ON CORTEX SEARCH SERVICE sales_conversation_search TO ROLE sales_int
 CREATE OR REPLACE STAGE models DIRECTORY = (ENABLE = TRUE);
 GRANT READ ON STAGE models TO ROLE sales_intelligence_role;
 
--- 6. Enable cross region inference (required to use claude-4-sonnet)
 ALTER ACCOUNT SET CORTEX_ENABLED_CROSS_REGION = 'AWS_US';
+
+SELECT 'Setup is Complete.' AS status;
